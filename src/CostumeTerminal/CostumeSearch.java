@@ -122,7 +122,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
                 case AfterDate:
                     for (Activity activity : machine.base.getActivities()) {
                         if (activity.getTime().compareTo(input) >= 0) {
-                            activity.output();
+                            activity.outputInformation();
                         }
                     }
                     end = true;
@@ -130,7 +130,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
                 case BeforeDate:
                     for (Activity activity : machine.base.getActivities()) {
                         if (activity.getTime().compareTo(input) <= 0) {
-                            activity.output();
+                            activity.outputInformation();
                         }
                     }
                     end = true;
@@ -143,7 +143,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
                     }else{
                         System.out.println("【以下是"+corporation.getName()+"举办的活动】");
                         for (Activity activity:corporation.getActivityList()) {
-                            activity.output();
+                            activity.outputInformation();
                         }
                         end = true;
                     }
