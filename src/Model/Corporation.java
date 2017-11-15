@@ -151,4 +151,8 @@ public class Corporation {
     public String getFoundingTime() {
         return foundingTime;
     }
+
+    public List<Activity> getActivityList() {
+        return activityList;
+    }
 }

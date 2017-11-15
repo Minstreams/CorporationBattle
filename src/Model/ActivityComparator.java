@@ -1,5 +1,6 @@
 package Model;
 
+import java.text.Collator;
 import java.util.Comparator;
 
 /**
@@ -9,34 +10,36 @@ public class ActivityComparator {
     /**
      * 比较名字
      */
-    public final class ComparaName implements Comparator<Activity> {
+    public final class CompareName implements Comparator<Activity> {
+        //用于按拼音排序
+        Comparator pinyinComparator = Collator.getInstance(java.util.Locale.CHINA);
         /**
          * 顺序或倒序
          */
         private boolean inOrder;
 
-        public ComparaName(boolean inOrder) {
+        public CompareName(boolean inOrder) {
             this.inOrder = inOrder;
         }
 
         @Override
         public int compare(Activity o1, Activity o2) {
             if (inOrder)
-                return o1.getName().compareTo(o2.getName());
-            return o2.getName().compareTo(o1.getName());
+                return pinyinComparator.compare(o1.getName(),o2.getName());
+            return pinyinComparator.compare(o2.getName(),o1.getName());
         }
     }
 
     /**
      * 比较日期
      */
-    public final class ComparaDate implements Comparator<Activity> {
+    public final class CompareDate implements Comparator<Activity> {
         /**
          * 顺序或倒序
          */
         private boolean inOrder;
 
-        public ComparaDate(boolean inOrder) {
+        public CompareDate(boolean inOrder) {
             this.inOrder = inOrder;
         }
 

@@ -71,6 +71,7 @@ public class AdministratorMode extends State<CostumeLauncher> {
 
 
     private void StartSort(CostumeLauncher machine) {
+        //开始阻塞
         isSorting = true;
         System.out.println("【输入“社团”或“活动”选择排序对象】");
         SortTarget sortTarget;
@@ -117,16 +118,16 @@ public class AdministratorMode extends State<CostumeLauncher> {
         switch (sortMode) {
             case ByName:
                 if (sortTarget == SortTarget.SortCorporation) {
-                    Collections.sort(machine.base.getCorporations(), new CorporationComparator().new ComparaName(byOrder));
+                    Collections.sort(machine.base.getCorporations(), new CorporationComparator().new CompareName(byOrder));
                 } else {
-                    Collections.sort(machine.base.getActivities(), new ActivityComparator().new ComparaName(byOrder));
+                    Collections.sort(machine.base.getActivities(), new ActivityComparator().new CompareName(byOrder));
                 }
                 break;
             case ByDate:
                 if (sortTarget == SortTarget.SortCorporation) {
-                    Collections.sort(machine.base.getCorporations(), new CorporationComparator().new ComparaDate(byOrder));
+                    Collections.sort(machine.base.getCorporations(), new CorporationComparator().new CompareDate(byOrder));
                 } else {
-                    Collections.sort(machine.base.getActivities(), new ActivityComparator().new ComparaDate(byOrder));
+                    Collections.sort(machine.base.getActivities(), new ActivityComparator().new CompareDate(byOrder));
                 }
                 break;
         }
@@ -134,6 +135,7 @@ public class AdministratorMode extends State<CostumeLauncher> {
         machine.base.Save();
         machine.base.Output();
         ShowTips();
+        //结束阻塞
         isSorting = false;
     }
 
