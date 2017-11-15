@@ -151,7 +151,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
             }
         }
 
-        System.out.println("【筛选完毕!】");
+        System.out.println("\n【筛选完毕!】");
         ShowTips();
         //结束阻塞
         blocked = false;
@@ -161,8 +161,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
      * 显示提示
      */
     private void ShowTips() {
-        System.out.println();
-        System.out.println("【输入“筛选”进行筛选！】");
+        System.out.println("\n【输入“筛选”进行筛选！】");
         System.out.println("【输入社团或活动名查看详情！】");
         System.out.println("【输入“进入后台”进入后台！】");
     }

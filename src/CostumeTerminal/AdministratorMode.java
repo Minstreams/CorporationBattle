@@ -143,8 +143,7 @@ public class AdministratorMode extends State<CostumeLauncher> {
      * 显示提示
      */
     private void ShowTips(){
-        System.out.println("");
-        System.out.println("【输入社团名或活动名查询信息！】");
+        System.out.println("\n【输入社团名或活动名查询信息！】");
         System.out.println("【输入“排序”开始排序！】");
         System.out.println("【输入“退出后台”退出后台！】");
     }
