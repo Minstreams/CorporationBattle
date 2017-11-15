@@ -27,7 +27,7 @@ public class Corporation {
         this.base = base;
         Set(input);
         for (int i = 0; i < photo.length; i++) {
-            photo[i] = "【" + name + "】照片" + (i + 1);
+            photo[i] = "【" + name + "】\t照片" + (i + 1);
         }
     }
 
