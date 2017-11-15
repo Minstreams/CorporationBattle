@@ -61,7 +61,7 @@ public class Activity {
      * 输出详细信息
      */
     public void outputInformation() {
-        String out = "【" + name + "】举办于" + time + " " + position
+        String out = "\n【" + name + "】举办于" + time + " " + position
                 + "\n【主办社团】 ";
         for (Corporation cor : hostCorporation) {
             out += cor.getName() + " ";

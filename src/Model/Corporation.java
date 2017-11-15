@@ -117,7 +117,7 @@ public class Corporation {
      * @return
      */
     public void outputSecretInformation() {
-        String out = "【" + name + "】成立于" + foundingTime
+        String out = "\n【" + name + "】成立于" + foundingTime
                 + "\n【负责人】" + personInCharge.getName()
                 + " ,院系 " + personInCharge.getDepartment()
                 + " ,班级 " + personInCharge.getClassroom()
