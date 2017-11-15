@@ -23,6 +23,5 @@ public class test {
         //以1毫秒的间隔反复调用客户端状态机中的run方法
         timer.schedule(launcher, 0, (long) 1);
 
-
     }
 }

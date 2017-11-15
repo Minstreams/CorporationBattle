@@ -13,6 +13,24 @@ public class DataBase {
     private List<Activity> activities = new ArrayList<Activity>();
 
     /**
+     * 实例化时加载
+     */
+    public DataBase() {
+        this.Load();
+    }
+
+    /**
+     * 清理时存储
+     *
+     * @throws Throwable
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        this.Save();
+    }
+
+    /**
      * 遍历输出社团活动表列
      */
     public void Output() {
@@ -60,19 +78,27 @@ public class DataBase {
     public void Save() {
         System.out.println("开始保存数据...");
         //储存人员信息
-        List<String> personListString = new ArrayList<String>();
+        List<String> personListString = new ArrayList<>();
+        personListString.add("用户表（人员信息自拟，请参见社团成员）,,");
+        personListString.add("姓名,学院,班级");
         for (Person person : persons) {
             personListString.add(person.toString());
         }
         CSVUtils.exportCsv(new File("data\\用户表.csv"), personListString);
+
         //储存社团信息
-        List<String> corporationListString = new ArrayList<String>();
+        List<String> corporationListString = new ArrayList<>();
+        corporationListString.add("社团表,,,,,,,");
+        corporationListString.add("社团名,创建时间,负责人,联系电话,邮箱,社团成员,举办的活动,简介");
         for (Corporation corporation : corporations) {
-            personListString.add(corporation.toString());
+            corporationListString.add(corporation.toString());
         }
         CSVUtils.exportCsv(new File("data\\社团表.csv"), corporationListString);
+
         //储存活动信息
-        List<String> activityListString = new ArrayList<String>();
+        List<String> activityListString = new ArrayList<>();
+        activityListString.add("活动表,,,,,,,");
+        activityListString.add("活动名称,开始时间,地点,主办社团,宣传标语,备注,,");
         for (Activity activity : activities) {
             activityListString.add(activity.toString());
         }

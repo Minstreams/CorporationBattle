@@ -5,8 +5,6 @@ import Asset.State;
 import Model.Activity;
 import Model.Corporation;
 
-import java.util.Random;
-
 /**
  * 主界面状态
  */
@@ -45,7 +43,7 @@ public class CostumeSearch extends State<CostumeLauncher> {
         //获取输入的字符串
         String input =InputStateMachine.getInputString();
         //如果输入不为空
-        if(!input.equals("")){
+        if(!input.isEmpty()){
             if(input.equals("进入后台")){
                 //切换到后台状态
                 machine.ChangeToState(new AdministratorMode());

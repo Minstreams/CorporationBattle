@@ -77,7 +77,7 @@ public class CSVUtils {
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "GBK"));
             String line = "";
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null && !line.isEmpty()) {
                 dataList.add(line);
             }
         } catch (Exception e) {

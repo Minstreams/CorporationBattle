@@ -11,7 +11,7 @@ public class CostumeLauncher extends StateMachine {
     /**
      * 数据库
      */
-    public DataBase base;
+    public DataBase base = new DataBase();
 
     /**
      * 初始化状态机和数据库，并加载数据
@@ -20,7 +20,5 @@ public class CostumeLauncher extends StateMachine {
      */
     public CostumeLauncher(State<CostumeLauncher> state) {
         super(state);
-        this.base = new DataBase();
-        base.Load();
     }
 }

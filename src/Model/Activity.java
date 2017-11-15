@@ -54,13 +54,28 @@ public class Activity {
      * 输出简略信息
      */
     public void output() {
-        System.out.println(name);
+        System.out.println(time + " \t" + name);
     }
 
     /**
      * 输出详细信息
      */
     public void outputInformation() {
+        String out = "【" + name + "】举办于" + time + " " + position
+                + "\n【主办社团】 ";
+        for (Corporation cor : hostCorporation) {
+            out += cor.getName() + " ";
+        }
+        out += "\n【简介】" + headline + "\n";
+        System.out.print(out);
+    }
+
+    /**
+     * 后台状态时输出最详细信息
+     *
+     * @return
+     */
+    public void outputSecretImformation() {
         String out = "【" + name + "】举办于" + time + " " + position
                 + "\n【主办社团】 ";
         for (Corporation cor : hostCorporation) {
@@ -75,6 +90,10 @@ public class Activity {
 
     public String getName() {
         return name;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public void setName(String name) {

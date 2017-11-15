@@ -80,7 +80,7 @@ public class Corporation {
         for (int i = 0; i < activityList.size() - 1; i++) {
             out += activityList.get(i).getName() + "、";
         }
-        out += activityList.get(activityList.size() - 1) + "," + introduction;
+        out += activityList.get(activityList.size() - 1).getName() + "," + introduction;
 
         return out;
     }
@@ -111,6 +111,31 @@ public class Corporation {
         System.out.print(out);
     }
 
+    /**
+     * 后台状态时输出最详细信息
+     *
+     * @return
+     */
+    public void outputSecretInformation() {
+        String out = "【" + name + "】成立于" + foundingTime
+                + "\n【负责人】" + personInCharge.getName()
+                + " ,院系 " + personInCharge.getDepartment()
+                + " ,班级 " + personInCharge.getClassroom()
+                + " ,联系电话 " + phoneNum
+                + " ,邮箱 " + emailAddress
+                + "\n【简介】" + introduction
+                + "\n【举办活动】";
+        for (Activity act : activityList) {
+            out += act.getName() + " ";
+        }
+        out += "\n【所有成员】";
+        for (Person person : personList) {
+            out += person.getName() + " ";
+        }
+        out += "\n";
+        System.out.print(out);
+    }
+
     public String getName() {
         return name;
     }
@@ -121,5 +146,9 @@ public class Corporation {
 
     public String getPhoto(int i) {
         return photo[i];
+    }
+
+    public String getFoundingTime() {
+        return foundingTime;
     }
 }

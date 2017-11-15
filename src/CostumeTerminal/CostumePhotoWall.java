@@ -38,7 +38,7 @@ public class CostumePhotoWall extends State<CostumeLauncher> {
             System.out.println(machine.base.getCorporations().get(corporationNum).getPhoto(photoNum));
         }
         //如果有任何键输入
-        if(InputStateMachine.getAnyKeyDown()){
+        if (InputStateMachine.getAnyKeyDown()) {
             //切换到主界面状态
             machine.ChangeToState(new CostumeSearch());
         }

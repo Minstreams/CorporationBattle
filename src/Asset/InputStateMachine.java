@@ -1,9 +1,16 @@
 package Asset;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * 以状态机形式封装的输入系统，目前只有一个状态
  */
 public class InputStateMachine extends StateMachine {
+    /**
+     * 获取控制台输入流
+     */
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     /**
      * 用于缓冲记录是否有键按下
      */
@@ -39,6 +46,16 @@ public class InputStateMachine extends StateMachine {
         String out = inputString;
         inputString = "";
         return out;
+    }
+
+    /**
+     * 阻塞读取一行字符串
+     *
+     * @return
+     */
+    public static String readLine() {
+        while (inputString.isEmpty()) System.out.print(inputString);
+        return getInputString();
     }
 
     public void setAnyKeyDown(boolean anyKeyDown) {
